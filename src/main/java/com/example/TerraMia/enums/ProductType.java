@@ -1,0 +1,5 @@
+package com.example.TerraMia.enums;
+
+public enum ProductType {
+    SPECIALITA,FRITTI,PIZZE_CLASSICHE,PIZZE_FOOD_PORN,PIZZE_DESSERT,BIBITE,VINI,PER_CONCLUDERE
+}
