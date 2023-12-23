@@ -9,15 +9,11 @@ import com.example.TerraMia.exceptions.BadRequestException;
 import com.example.TerraMia.exceptions.UnauthorizedException;
 import com.example.TerraMia.security.JWTTools;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.example.TerraMia.payloads.Token;
-import com.example.TerraMia.payloads.UserLoginDTO;
-import com.example.TerraMia.payloads.UserLoginSuccessDTO;
-import com.example.TerraMia.payloads.UserRegistrationDTO;
+import com.example.TerraMia.payloads.entities.Token;
+import com.example.TerraMia.payloads.entities.UserLoginDTO;
+import com.example.TerraMia.payloads.entities.UserRegistrationDTO;
 import java.io.IOException;
 
 @Service

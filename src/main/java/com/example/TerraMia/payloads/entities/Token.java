@@ -1,4 +1,4 @@
-package com.example.TerraMia.payloads;
+package com.example.TerraMia.payloads.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

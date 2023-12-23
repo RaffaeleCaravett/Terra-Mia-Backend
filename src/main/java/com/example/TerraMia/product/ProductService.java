@@ -1,13 +1,10 @@
 package com.example.TerraMia.product;
 
-import com.example.TerraMia.User.User;
 import com.example.TerraMia.enums.ProductType;
-import com.example.TerraMia.exceptions.BadRequestException;
 import com.example.TerraMia.exceptions.NotFoundException;
 import com.example.TerraMia.ingredients.Ingredients;
 import com.example.TerraMia.ingredients.IngredientsRepository;
-import com.example.TerraMia.payloads.ProductDTO;
-import com.example.TerraMia.payloads.UserRegistrationDTO;
+import com.example.TerraMia.payloads.entities.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -53,8 +50,17 @@ public class ProductService {
 
     public Product findByIdAndUpdate(long id, ProductDTO body) throws NotFoundException {
         Product found = productRepository.findById(id).get();
+        List<Ingredients> ingredientsList= new ArrayList<>();
 
-        //found.setPassword(bcrypt.encode(body.getPassword()));
+        for(Long l: body.ingredients()){
+            ingredientsList.add(ingredientsRepository.findById(l).get());
+        }
+        ProductType p = ProductType.valueOf(body.productType());
+        found.setNome(body.nome());
+found.setIngredients(ingredientsList);
+found.setPrice(body.price());
+found.setProductType(p);
+found.setRequests(body.requests());
         return productRepository.save(found);
     }
 

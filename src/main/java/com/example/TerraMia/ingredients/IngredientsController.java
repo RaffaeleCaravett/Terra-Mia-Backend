@@ -2,9 +2,7 @@ package com.example.TerraMia.ingredients;
 
 import com.example.TerraMia.exceptions.BadRequestException;
 import com.example.TerraMia.exceptions.NotFoundException;
-import com.example.TerraMia.payloads.IngredientDTO;
-import com.example.TerraMia.payloads.ProductDTO;
-import com.example.TerraMia.product.Product;
+import com.example.TerraMia.payloads.entities.IngredientDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 @RestController
+@RequestMapping("/ingredients")
 public class IngredientsController {
 
     @Autowired

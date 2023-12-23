@@ -1,8 +1,6 @@
-package com.example.TerraMia.payloads;
-
+package com.example.TerraMia.payloads.entities;
 
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
 public record UserRegistrationDTO(
         long id,
@@ -16,4 +14,3 @@ public record UserRegistrationDTO(
         @NotEmpty(message = "Il cognome è un campo obbligatorio!")
         String cognome
 ){}
-

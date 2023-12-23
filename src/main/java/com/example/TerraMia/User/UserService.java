@@ -1,7 +1,7 @@
 package com.example.TerraMia.User;
 
 import com.example.TerraMia.exceptions.NotFoundException;
-import com.example.TerraMia.payloads.UserRegistrationDTO;
+import com.example.TerraMia.payloads.entities.UserRegistrationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

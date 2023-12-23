@@ -1,11 +1,10 @@
 package com.example.TerraMia.User;
 
 import com.example.TerraMia.exceptions.NotFoundException;
-import com.example.TerraMia.payloads.UserRegistrationDTO;
+import com.example.TerraMia.payloads.entities.UserRegistrationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,8 +1,11 @@
 package com.example.TerraMia.User;
 
 import com.example.TerraMia.enums.Role;
+import com.example.TerraMia.order.Order;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,6 +18,8 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name="users")
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +29,8 @@ public class User implements UserDetails {
     private String email;
     private String password;
     private Role ruolo;
+    @OneToMany(mappedBy = "createdBy")
+    private List<Order> orders;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(this.ruolo.name()));

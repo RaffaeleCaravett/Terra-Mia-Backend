@@ -3,7 +3,7 @@ package com.example.TerraMia.security;
 import com.example.TerraMia.User.User;
 import com.example.TerraMia.User.UserRepository;
 import com.example.TerraMia.exceptions.UnauthorizedException;
-import com.example.TerraMia.payloads.Token;
+import com.example.TerraMia.payloads.entities.Token;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
