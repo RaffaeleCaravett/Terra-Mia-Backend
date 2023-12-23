@@ -14,4 +14,9 @@ public class Ingredients {
     private long id;
     private String nome;
     private double prezzo;
+
+    public Ingredients(String nome, double prezzo) {
+        this.nome = nome;
+        this.prezzo = prezzo;
+    }
 }
