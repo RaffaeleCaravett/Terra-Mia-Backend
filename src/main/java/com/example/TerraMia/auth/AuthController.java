@@ -32,7 +32,6 @@ public class AuthController {
 
     @PostMapping("/login")
     public UserLoginSuccessDTO login(@RequestBody UserLoginDTO body) throws Exception {
-
         return new UserLoginSuccessDTO(authService.authenticateUser(body));
     }
 

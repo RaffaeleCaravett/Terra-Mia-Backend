@@ -26,18 +26,19 @@ public class OrderService {
     ProductRepository productRepository;
     @Autowired
     UserRepository userRepository;
+
     public Order saveOrder(OrderDTO body) throws IOException {
 
-        List<Product> productList= new ArrayList<>();
+        List<Product> productList = new ArrayList<>();
 
-        for(Long l: body.products()){
+        for (Long l : body.products()) {
             productList.add(productRepository.findById(l).get());
         }
 
-OrderState s = OrderState.valueOf(body.state());
+        OrderState s = OrderState.valueOf(body.state());
 
         User user = userRepository.findById(body.user()).get();
-        Order product = new Order(body.coperti(), productList,user, s);
+        Order product = new Order(body.coperti(), productList, user, s);
         return orderRepository.save(product);
     }
 
@@ -56,17 +57,17 @@ OrderState s = OrderState.valueOf(body.state());
 
         OrderState s = OrderState.valueOf(body.state());
 
-        List<Product> productList= new ArrayList<>();
+        List<Product> productList = new ArrayList<>();
 
-        for(Long l: body.products()){
+        for (Long l : body.products()) {
             productList.add(productRepository.findById(l).get());
         }
- User user = userRepository.findById(body.user()).get();
+        User user = userRepository.findById(body.user()).get();
 
         found.setCoperti(body.coperti());
- found.setState(s);
- found.setProdotti(productList);
- found.setCreatedBy(user);
+        found.setState(s);
+        found.setProdotti(productList);
+        found.setCreatedBy(user);
 
         return orderRepository.save(found);
     }
@@ -74,6 +75,18 @@ OrderState s = OrderState.valueOf(body.state());
     public void findByIdAndDelete(long id) throws NotFoundException {
         Order found = this.findById(id);
         orderRepository.delete(found);
+    }
+
+    public List<Order> findOrdersByYear(int year) {
+        return orderRepository.findOrdersByYear(year);
+    }
+
+    public List<Order> findOrdersByYearAndMonth(int year, int month) {
+        return orderRepository.findOrdersByYearAndMonth(year, month);
+    }
+
+    public List<Order> findOrdersByDate(int year, int month, int day) {
+        return orderRepository.findOrdersByDate(year, month, day);
     }
 
 }

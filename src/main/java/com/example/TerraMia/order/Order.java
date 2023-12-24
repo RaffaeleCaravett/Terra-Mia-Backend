@@ -29,6 +29,7 @@ public class Order {
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> prodotti;
     private double totale;
+    @Column(name = "created_at")
     private LocalDate createdAt;
     @ManyToOne
     @JoinColumn(name="user_id")
@@ -41,4 +42,5 @@ public class Order {
         this.createdBy = createdBy;
         this.state = state;
     }
+
 }
