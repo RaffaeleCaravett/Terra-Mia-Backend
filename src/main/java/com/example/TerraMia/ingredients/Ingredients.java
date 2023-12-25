@@ -1,6 +1,7 @@
 package com.example.TerraMia.ingredients;
 
 import com.example.TerraMia.product.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public class Ingredients {
     private long id;
     private String nome;
     private double prezzo;
+    @JsonIgnore
     @ManyToMany(mappedBy = "ingredients")
     private List<Product> products;
     public Ingredients(String nome, double prezzo) {

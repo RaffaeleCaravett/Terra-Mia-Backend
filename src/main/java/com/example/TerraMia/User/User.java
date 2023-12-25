@@ -28,6 +28,7 @@ public class User implements UserDetails {
     private String cognome;
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
     private Role ruolo;
     @OneToMany(mappedBy = "createdBy")
     private List<Order> orders;

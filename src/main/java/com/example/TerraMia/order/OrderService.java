@@ -4,6 +4,8 @@ import com.example.TerraMia.User.User;
 import com.example.TerraMia.User.UserRepository;
 import com.example.TerraMia.enums.OrderState;
 import com.example.TerraMia.exceptions.NotFoundException;
+import com.example.TerraMia.modifiedProducts.ModifiedProduct;
+import com.example.TerraMia.modifiedProducts.ModifiedProductRepository;
 import com.example.TerraMia.payloads.entities.OrderDTO;
 import com.example.TerraMia.product.Product;
 import com.example.TerraMia.product.ProductRepository;
@@ -23,13 +25,13 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
     @Autowired
-    ProductRepository productRepository;
+    ModifiedProductRepository productRepository;
     @Autowired
     UserRepository userRepository;
 
     public Order saveOrder(OrderDTO body) throws IOException {
 
-        List<Product> productList = new ArrayList<>();
+        List<ModifiedProduct> productList = new ArrayList<>();
 
         for (Long l : body.products()) {
             productList.add(productRepository.findById(l).get());
@@ -38,7 +40,7 @@ public class OrderService {
         OrderState s = OrderState.valueOf(body.state());
 
         User user = userRepository.findById(body.user()).get();
-        Order product = new Order(body.coperti(), productList, user, s);
+        Order product = new Order(body.coperti(), productList, user, s,body.tavolo());
         return orderRepository.save(product);
     }
 
@@ -57,7 +59,7 @@ public class OrderService {
 
         OrderState s = OrderState.valueOf(body.state());
 
-        List<Product> productList = new ArrayList<>();
+        List<ModifiedProduct> productList = new ArrayList<>();
 
         for (Long l : body.products()) {
             productList.add(productRepository.findById(l).get());
@@ -68,7 +70,7 @@ public class OrderService {
         found.setState(s);
         found.setProdotti(productList);
         found.setCreatedBy(user);
-
+found.setTavolo(body.tavolo());
         return orderRepository.save(found);
     }
 

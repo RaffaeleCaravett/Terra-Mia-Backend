@@ -15,7 +15,6 @@ public record ProductDTO(
         String productType,
         @NotNull(message = "Il price è un campo obbligatorio!")
         Double price,
-        @NotNull(message = "Gli ingredients sono un campo obbligatorio!")
         List<Long> ingredients,
         String requests
 ) {

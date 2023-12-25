@@ -17,6 +17,8 @@ public record OrderDTO(
         Long user,
 
         @NotEmpty(message="Stato obbligatorio")
-String state
+String state,
+        @NotEmpty(message="Stato obbligatorio")
+        String tavolo
 ) {
 }
