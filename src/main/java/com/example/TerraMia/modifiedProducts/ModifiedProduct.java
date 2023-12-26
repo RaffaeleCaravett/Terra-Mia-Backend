@@ -43,5 +43,17 @@ public class ModifiedProduct {
         this.ingredients = ingredients;
         this.requests = requests;
     }
+
+    @Override
+    public String toString() {
+        return "ModifiedProduct{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", productType=" + productType +
+                ", price=" + price +
+                ", ingredients=" + ingredients +
+                ", requests='" + requests + '\'' +
+                '}';
+    }
 }
 

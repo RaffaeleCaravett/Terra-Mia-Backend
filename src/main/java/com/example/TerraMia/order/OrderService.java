@@ -34,6 +34,7 @@ public class OrderService {
         List<ModifiedProduct> productList = new ArrayList<>();
 
         for (Long l : body.products()) {
+            System.out.println("product : "+  l.toString());
             productList.add(productRepository.findById(l).get());
         }
 
@@ -62,6 +63,7 @@ public class OrderService {
         List<ModifiedProduct> productList = new ArrayList<>();
 
         for (Long l : body.products()) {
+            System.out.println(l.toString());
             productList.add(productRepository.findById(l).get());
         }
         User user = userRepository.findById(body.user()).get();

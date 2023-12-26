@@ -2,6 +2,7 @@ package com.example.TerraMia.User;
 
 import com.example.TerraMia.enums.Role;
 import com.example.TerraMia.order.Order;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,6 +31,7 @@ public class User implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role ruolo;
+    @JsonIgnore
     @OneToMany(mappedBy = "createdBy")
     private List<Order> orders;
     @Override

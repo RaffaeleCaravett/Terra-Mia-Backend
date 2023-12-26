@@ -24,7 +24,7 @@ public class JWTTools {
 
         String accessToken= Jwts.builder().setSubject(String.valueOf(user.getId()))// Subject <-- A chi appartiene il token
                 .setIssuedAt(new Date(System.currentTimeMillis())) // Data di emissione (IAT - Issued At)
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 45) ) // Data di scadenza (Expiration Date)
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60*10) ) // Data di scadenza (Expiration Date)
                 .signWith(Keys.hmacShaKeyFor(secret.getBytes())).compact();
 
         String refreshToken=Jwts.builder().setSubject(String.valueOf(user.getId()))// Subject <-- A chi appartiene il token

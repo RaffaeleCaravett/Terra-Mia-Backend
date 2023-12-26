@@ -37,6 +37,7 @@ public class ModifiedProductService {
 
 
         ModifiedProduct product = new ModifiedProduct(body.nome(), p, body.price(),ingredientsList, body.requests());
+        System.out.println("modifiedProduct saved : " + product.toString());
         return productRepository.save(product);
     }
 
